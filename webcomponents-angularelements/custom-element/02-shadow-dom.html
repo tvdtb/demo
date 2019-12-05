@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body { --my-primxxxary-color: red;  }
+      p { font-weight: bold; color: var(--my-primary-color, blue); }
+    </style>
+	<script>
+		class MyElement extends HTMLElement {
+			connectedCallback() {
+				const root = this.attachShadow({ mode: 'closed' });
+				const message = this.getAttribute('message');
+				root.innerHTML = `<p style="color: var(--my-primary-color, orange)">${message}</p>`;
+			}
+		}
+		customElements.define("my-element", MyElement)	  
+	</script>
+  </head>
+<body>
+    <p>before element</p>
+    <my-element message="Hauskonferenz 2019"></my-element>
+    <p>after element</p>
+</body>
+</html>
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script>
+		class SearchElement extends HTMLElement {
+			connectedCallback() {
+				this.innerHTML = `<input type="text" id="text"> <button id="btn">Search</button>`
+				this.querySelector('#btn').addEventListener('click', ()=> {
+					let text = this.querySelector('#text').value
+					this.dispatchEvent(new CustomEvent('my-search'
+						, {
+							bubbles: true
+							, composed: true
+							, detail: text
+					}));
+				});
+			}
+		}
+		customElements.define("my-search", SearchElement);
+		document.addEventListener('my-search', (evt) => {
+			evt.stopPropagation();
+			alert("Search: "+evt.detail)
+        });	  
+	</script>
+  </head>
+<body>
+	<my-search></my-search>
+</body>
+</html>
+
+
+
+

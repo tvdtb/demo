@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script>
+		class ElementOne extends HTMLElement {
+			connectedCallback() {
+				this.innerHTML = `<p>one</p>`
+			}
+			doSomething() {
+				//this.innerHTML = `<p>one-doSomething</p>`
+			}
+		}
+		class ElementTwo extends HTMLElement {
+			connectedCallback() {
+				this.innerHTML = `<p><my-one id="one"></my-one></p>`
+				this.appendChild(new ElementOne());
+				this.querySelector('#one').doSomething();
+			}
+		}
+		customElements.define("my-one", ElementOne)	  
+		customElements.define("my-two", ElementTwo)	  
+	</script>
+  </head>
+<body>
+	<my-two></my-two>
+</body>
+</html>
+
+
+
+

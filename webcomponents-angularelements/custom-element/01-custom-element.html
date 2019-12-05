@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script>
+		class MyElement extends HTMLElement {
+			connectedCallback() {
+				const root = this;
+				const message = this.getAttribute('message');
+				root.innerHTML = `<p>${message}</p>`;
+			}
+		}
+		customElements.define("my-element", MyElement)	  
+	</script>
+  </head>
+<body>
+    <my-element message="Hauskonferenz 2019"></my-element>
+</body>
+</html>
+
+
