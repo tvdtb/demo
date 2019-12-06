@@ -5,7 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   template: `
     <div class="alert alert-{{ type }} alert-dismissible" *ngIf="show">
       {{ content }}
-      <button (click)="show = false; closed.emit()" type="button" class="close">
+      <button (click)="doSomethingInternal()" type="button" class="close">
         <span >&times;</span>
       </button>
     </div>
@@ -18,5 +18,9 @@ export class CustomButtonComponent  {
   @Output() closed = new EventEmitter();
 
   show = true;
+
+  public doSomethingInternal() {
+    this.content = "intern";
+  }
 
 }
