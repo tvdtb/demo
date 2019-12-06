@@ -8,7 +8,14 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
-  <my-button content="Hauskonferenz 2019"></my-button>
+  <my-button content="Statisch: Hauskonferenz 2019" type="success"></my-button>
+  <script>
+    const customButton = document.createElement('my-button');
+    // customButton.content = 'Hauskonferenz 2019'; // so gehts nicht
+    customButton.setAttribute("content", "Dynamisch: Hauskonferenz 2019")
+    customButton.setAttribute("type", "info")
+    document.body.appendChild(customButton);
+    console.log(document.body)
+  </script>
 </body>
 </html>
