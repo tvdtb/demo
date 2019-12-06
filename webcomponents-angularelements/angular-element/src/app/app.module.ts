@@ -4,6 +4,7 @@ import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
 import { CustomButtonComponent } from './custom-button/custom-button.component';
+import { customElementPlease } from './webcomponent-creating-process';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ export class AppModule {
     const ngElement = createCustomElement(CustomButtonComponent, {
       injector: this.injector
     });
-    customElements.define('my-button', ngElement);
+
+    const newNgElement = customElementPlease(CustomButtonComponent,  this.injector)
+    // customElements.define('my-button', ngElement);
+    customElements.define('my-button', newNgElement);
   }
 }
