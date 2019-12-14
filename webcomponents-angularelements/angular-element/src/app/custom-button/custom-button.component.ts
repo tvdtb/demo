@@ -6,11 +6,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     <div class="alert alert-{{ type }} alert-dismissible" *ngIf="show">
       {{ content }}
       <button (click)="doSomethingInternal()" type="button" class="close">
-        <span >&times;</span>
+        <span >&hearts;</span>
       </button>
     </div>
   `,
-  styles: ['.alert {max-width: 500px; margin: 0 auto;}', 'button:focus,button:hover {outline:none; background: beige}']
+  styles: ['.alert {max-width: 500px; margin: 0 auto;}', 'button:focus {outline:none}','button:hover {background: beige}']
 })
 export class CustomButtonComponent  {
   @Input() content = 'Default';
@@ -20,7 +20,13 @@ export class CustomButtonComponent  {
   show = true;
 
   public doSomethingInternal() {
-    this.content = "intern";
+    if (this.type == "success"){
+      this.type = "info"
+      this.content = "Hauskonferenz 2019 Info"
+    } else if (this.type == "info"){
+      console.log("test")
+      this.type = "success";
+      this.content = "Hauskonferenz 2019 Success"
+    }
   }
-
 }
