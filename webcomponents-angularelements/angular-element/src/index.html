@@ -8,11 +8,11 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <my-button content="Statisch: Hauskonferenz 2019" type="success"></my-button>
+  <my-button content="statisch eingebundenes AngularElement" type="success"></my-button>
   <script>
     const customButton = document.createElement('my-button');
     // customButton.content = 'Hauskonferenz 2019'; // so gehts nicht
-    customButton.setAttribute("content", "Dynamisch: Hauskonferenz 2019")
+    customButton.setAttribute("content", "dynamisch eingebundenes AngularElement")
     customButton.setAttribute("type", "info")
     document.body.appendChild(customButton);
   </script>
