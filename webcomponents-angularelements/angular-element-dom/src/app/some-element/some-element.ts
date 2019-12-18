@@ -13,11 +13,12 @@ export class SomeElementComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    document.body.addEventListener('my-custom-event', (ev: CustomEvent) => {
-      console.log("custom event: ", ev, this);
+    document.body.addEventListener('my-send-message', (ev: CustomEvent) => {
+      console.log('custom event message: ', ev, this);
       this.count++;
-      if (ev.detail)
+      if (ev.detail) {
         this.message = ev.detail.message;
+      }
     });
   }
 
