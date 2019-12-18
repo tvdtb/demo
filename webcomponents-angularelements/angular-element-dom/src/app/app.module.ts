@@ -19,7 +19,8 @@ export class AppModule {
   }
 
   ngDoBootstrap() {
-    const someElementClass = this.customElementPlease(SomeElementComponent, this.injector);
+    // bla bla const someElementClass = this.customElementPlease(SomeElementComponent, this.injector);
+    const someElementClass = createCustomElement(SomeElementComponent, { injector: this.injector});
     customElements.define('app-some-element', someElementClass);
   }
 
