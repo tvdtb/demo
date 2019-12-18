@@ -8,7 +8,25 @@ ng serve
 
 ```shell script
 ng build
+
+http-server dist/demo
+# OR
 browser-sync start --server dist/demo
+```
+
+# Create bundle
+
+```shell script
+
+cat runtime-es2015.js > bundle.js
+echo "" >> bundle.js
+cat polyfills-es2015.js   >> bundle.js
+echo "" >> bundle.js
+cat scripts.js  >> bundle.js
+echo "" >> bundle.js
+cat main-es2015.js  >> bundle.js
+echo "" >> bundle.js
+
 ```
 
 # Test code 
