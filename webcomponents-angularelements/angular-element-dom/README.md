@@ -7,7 +7,7 @@ ng serve
 # Build and run
 
 ```shell script
-ng build --single-bundle
+ng build
 browser-sync start --server dist/demo
 ```
 

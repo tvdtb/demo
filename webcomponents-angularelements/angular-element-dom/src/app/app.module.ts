@@ -24,6 +24,7 @@ export class AppModule {
     customElements.define('app-some-element', someElementClass);
   }
 
+  /*
 
   customElementPlease(component, injector) {
     const factory = AppModule.getComponentFactory(component, injector);
@@ -105,5 +106,5 @@ export class AppModule {
   }
 
 
-
+*/
 }
