@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<!-- script src="bundle.js"></script -->
-	
+    <title>05-angular</title>
+    <meta charset="utf-8"/>
+    <script src="bundle.js"></script>
+    <script>
+      class SendMessageElement extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = `<input type="text" id="text"> <button id="btn">Send message</button>`
+          this.querySelector('#btn').addEventListener('click', ()=> {
+            let text = this.querySelector('#text').value
+            this.dispatchEvent(new CustomEvent('my-send-message'
+                , {
+                  bubbles: true
+                  , composed: true
+                  , detail: { message: text }
+                }));
+          });
+        }
+      }
+      customElements.define("my-send-message", SendMessageElement);
+    </script>
   </head>
-<body>
-  <app-some-element></app-some-element>
-  <script src="zone.js" defer></script>
-
-<script src="scripts.9ddf727ecc94cd123172.js" defer></script>
-<script src="main.f0646db0986d072a5f77.js" defer></script>
-</body>
+  <body>
+  <p>
+    <my-send-message></my-send-message>
+  </p>
+  <hr>
+  <p>
+    <app-some-element></app-some-element>
+  </p>
+  </body>
 </html>
 
 

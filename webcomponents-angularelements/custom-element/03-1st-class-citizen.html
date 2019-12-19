@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+		<title>03-1st-class-citizen</title>
+		<meta charset="utf-8"/>
 	<script>
 		class ElementOne extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = `<p>one</p>`
 			}
 			doSomething() {
-				//this.innerHTML = `<p>one-doSomething</p>`
+				console.log('doSomething', this)
+				this.innerHTML = `<p>one-doSomething</p>`
 			}
 		}
 		class ElementTwo extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = `<p><my-one id="one"></my-one></p>`
 				this.appendChild(new ElementOne());
-				this.querySelector('#one').doSomething();
+				// this.querySelector('#one').doSomething();
 			}
 		}
 		customElements.define("my-one", ElementOne)	  
