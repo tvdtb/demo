@@ -22,11 +22,11 @@ export class CustomButtonComponent  {
   public doSomethingInternal() {
     if (this.type == "success"){
       this.type = "info"
-      this.content = "Hauskonferenz 2019 Info"
+      this.content = "AngularElement Info"
     } else if (this.type == "info"){
       console.log("test")
       this.type = "success";
-      this.content = "Hauskonferenz 2019 Success"
+      this.content = "AngularElement Success"
     }
   }
 }
