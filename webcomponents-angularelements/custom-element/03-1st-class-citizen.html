@@ -6,18 +6,18 @@
 	<script>
 		class ElementOne extends HTMLElement {
 			connectedCallback() {
-				this.innerHTML = `<p>one</p>`
+				this.innerHTML = `<p>ElementOne</p>`
 			}
 			doSomething() {
 				console.log('doSomething', this)
-				this.innerHTML = `<p>one-doSomething</p>`
+				this.innerHTML = `<p>ElementOne-doSomething</p>`
 			}
 		}
 		class ElementTwo extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = `<p><my-one id="one"></my-one></p>`
 				this.appendChild(new ElementOne());
-				// this.querySelector('#one').doSomething();
+				//this.querySelector('#one').doSomething();
 			}
 		}
 		customElements.define("my-one", ElementOne)	  
