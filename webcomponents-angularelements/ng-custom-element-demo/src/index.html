@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularElementDemo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      console.log("DOM fully loaded and parsed");
+      document.getElementById('custom1').addEventListener('importantEvent', evt => console.log('Event: ', evt));
+    });
+
+  </script>
+</head>
+<body>
+  <a href="javascript:document.getElementById('custom1').setAttribute('message', 'setAttribute')">Set message!</a>
+  <br/>
+  <br/>
+  <a href="javascript:document.getElementById('custom1').doSomethingExternal('called externally')">Call method!</a>
+  <br/>
+  <br/>
+
+  <my-custom-element id="custom1" message="default message"></my-custom-element>
+  <br/>
+  <br/>
+</body>
+</html>
